@@ -16,21 +16,7 @@ const promises = () => {
   }, []);
 
   return (
-    <div
-      style={
-        {
-          // backgroundColor: "rgb(112,168,251)",
-          // objectFit: "cover",
-          // width: "100vw",
-          // height: "100%",
-          // position: "fixed",
-          // top: 0,
-          // left: 0,
-          // overflowX: "hidden",
-          // overflowY: "scroll",
-        }
-      }
-    >
+    <div>
       <Layout>
         <div style={{}}>
           <div
@@ -38,22 +24,9 @@ const promises = () => {
               paddingTop: "5vh",
             }}
           >
-            <Search
-              onLoadTruths={searchTruthsHandler}
-              // style={{
-              //   position: "relative",
-              //   height: "50vh",
-              //   textAlign: "center",
-              //   display: "flex",
-              //   alignItems: "center",
-              //   justifyContent: "center",
-              // }}
-            />
+            <Search onLoadTruths={searchTruthsHandler} />
             <div>
-              <Cards
-                truths={truthState}
-                // className="flex flex-wrap justify-center max-w-screen-xl pb-12 mx-auto"
-              />
+              <Cards truths={truthState} />
             </div>
           </div>
         </div>

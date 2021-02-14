@@ -12,9 +12,10 @@ const Search = React.memo((props) => {
         const query =
           enteredSearch.length === 0
             ? ""
-            : `?orderBy="streak"&equalTo="${enteredSearch}"`;
+            : `?orderBy="truth"&equalTo="${enteredSearch}"`;
         fetch(
-          "https://truth-book-default-rtdb.firebaseio.com/truths.json" + query
+          "https://truth-book-default-rtdb.firebaseio.com/truths.json" +
+            encodeURI(query)
         )
           .then((response) => {
             console.log(response);
@@ -47,9 +48,7 @@ const Search = React.memo((props) => {
       className="flex flex-col items-center p-4 "
       style={{ paddingLeft: "12vw", paddingRight: "12vw" }}
     >
-      <label className="text-2xl font-bold text-white">
-        Filter by Truth Title
-      </label>
+      <label className="text-2xl font-bold text-white">Filter by Truth</label>
       <input
         className="block min-w-full p-2 my-4 text-gray-700 placeholder-gray-500 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
         type="email"

@@ -10,7 +10,8 @@ const layout = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
       <NavBar />
-      <main className="pb-32 mx-auto ">{props.children}</main>
+      {/* <div className="mx-auto text-white sm:max-w-screen-lg sm:flex sm:justify-between"> */}
+      <main className="pb-32 mx-auto sm:max-w-screen-lg">{props.children}</main>
       <Footer />
     </div>
   );

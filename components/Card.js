@@ -66,6 +66,16 @@ const Card = (props) => {
               ? truths[truthIndex].description
               : "Please Wait"}{" "}
           </p>
+
+          <h1
+            className="text-2xl font-semibold text-gray-800"
+            style={{ paddingTop: "2vh" }}
+          >
+            {truths[truthIndex] !== undefined
+              ? truths[truthIndex].streak
+              : "Loading"}
+            🔥
+          </h1>
         </div>
       </div>
 
@@ -81,22 +91,19 @@ const Card = (props) => {
               setTruthIndex(truthIndex + 1);
             }
           }}
-          className="px-20 py-4 bg-red-600 rounded "
+          className="py-4 bg-red-600 rounded "
           style={{
             color: "white",
+            width: "20vw",
+            textAlign: "center",
+            height: "auto",
           }}
         >
           Failed
         </button>
         <button
-          className="px-20 py-4 bg-gray-600 rounded "
+          className="py-4 bg-gray-600 rounded "
           onClick={() => {
-            updateTruthStatus(
-              truths[truthIndex].id,
-              truths[truthIndex].streak + 1
-            );
-            truths[truthIndex].streak += 1;
-
             if (truthIndex + 1 >= length) {
               setTruthIndex(0);
             } else {
@@ -105,12 +112,15 @@ const Card = (props) => {
           }}
           style={{
             color: "white",
+            width: "20vw",
+            textAlign: "center",
+            height: "auto",
           }}
         >
           Skip
         </button>
         <button
-          className="px-20 py-4 bg-green-600 rounded "
+          className="py-4 bg-green-600 rounded "
           onClick={() => {
             updateTruthStatus(
               truths[truthIndex].id,
@@ -126,9 +136,12 @@ const Card = (props) => {
           }}
           style={{
             color: "white",
+            width: "20vw",
+            textAlign: "center",
+            height: "auto",
           }}
         >
-          Skip
+          Complete
         </button>
       </div>
     </>
