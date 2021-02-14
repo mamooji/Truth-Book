@@ -5,7 +5,11 @@ export const MenuItems = [
   },
   {
     title: "Promises",
-    url: "/about",
+    url: "/promises",
+  },
+  {
+    title: "Create Promise",
+    url: "/new",
   },
   {
     title: "About",

@@ -1,21 +1,31 @@
-# Next.js + Tailwind CSS Example
+# Truth-Book Full Stack Application for YuHacks Hackathon 2021
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) (v2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This application allows users to have a way of keeping track of daily, weekly, monthly or even yearly tasks or goals they want to accomplish. With this application a user can create a goal with a name, description/milestones, and how often they want to complete this goal. Once the user has inputted this information it will create a Goal card based on this goal. For example, if someone who is an avid smoker wants to try quitting but hasn't been able to, this app gives them the opportunity to reflect on any decisisons they may have taken, and continue to meet their goal, while also being able to review any times they may have not met it, and reflect on it. This application allows users to have multiple goals set, and shows a calender history of all of the times their goal has been achieved, or failed. This can be used for something as simple as a reminder to take out the garbage on Sunday night, to overcoming habits or challenging circumstances.
 
-## Deploy your own
+### Installation and Startup
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+###### Clone This Repo
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+```
+git clone https://github.com/mamooji/Truth-Book.git
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+###### Move into the Project Directory
+
+```
+cd truth-book
+```
+
+###### Install Dependencies
+
+```
+npm install
+```
+
+###### Your first command
+
+```
+npm run dev
+
+This command will start the development server
+```

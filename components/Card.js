@@ -1,21 +1,137 @@
-const Card = () => {
+import { useState } from "react";
+import Typical from "react-typical";
+import firebase from "../Data/firebase.js";
+
+const Card = (props) => {
+  const { truths } = props;
+  const [truthIndex, setTruthIndex] = useState(0);
+  const length = truths.length;
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+
+  const updateTruthStatus = (truthID, newStreak) => {
+    const messagesRef = firebase.database().ref("truths");
+
+    var hopperRef = messagesRef.child(truthID);
+    hopperRef.update({
+      streak: newStreak,
+    });
+  };
+  // setIsLoading(true);
+  // fetch(
+  //   `https://truth-book-default-rtdb.firebaseio.com/truths.json/${truthID}.json`,
+  //   {
+  //     method: "UPDATE",
+  //     headers: { "Content-Type": "application/json" },
+  //   }
+  // )
+  //   .then((response) => {
+  //     setIsLoading(false);
+  //     setIngredientsState((prevIngredientsState) =>
+  //       prevIngredientsState.filter(
+  //         (ingredientsState) => ingredientsState.id !== ingredientId
+  //       )
+  //     );
+  //   })
+  //   .catch((error) => {
+  //     setError("Something went wrong :(");
+  //     setIsLoading(false);
+  //   });
+
   return (
-    <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-      <div className="flex flex-col p-6 mt-6 text-left border cursor-pointer w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 ">
-        <div className="text-center">
-          <h3 className="text-2xl font-bold">Truth Title</h3>
-          <p className="mt-4 text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-            at magnam aperiam aliquid culpa soluta excepturi exercitationem
-            cupiditate quidem, illum dignissimos laboriosam delectus ut
-            explicabo repudiandae fugiat ullam sapiente tempore quisquam
-            inventore voluptates repellat quae quia libero? Accusamus dolorem
-            rem maxime impedit quisquam. Cupiditate voluptate, laudantium fugit
-            omnis, recusandae quibusdam cumque
+    <>
+      <div
+        className="max-w-md p-4 mx-4 my-8 bg-white rounded-lg shadow-lg"
+        style={{
+          width: "90vw",
+          height: "35vh",
+        }}
+      >
+        <div className="h-full">
+          <h1
+            className="text-2xl font-semibold text-gray-800"
+            style={{ paddingTop: "1vh" }}
+          >
+            {truths[truthIndex] !== undefined
+              ? truths[truthIndex].truth
+              : "Loading"}{" "}
+          </h1>
+          <p
+            className="py-2 text-lg text-gray-600 "
+            style={{
+              paddingTop: "5vh",
+            }}
+          >
+            {truths[truthIndex] !== undefined
+              ? truths[truthIndex].description
+              : "Please Wait"}{" "}
           </p>
         </div>
       </div>
-    </div>
+
+      <div className="flex p-4 space-x-4">
+        <button
+          onClick={() => {
+            updateTruthStatus(truths[truthIndex].id, 0);
+            truths[truthIndex].streak = 0;
+
+            if (truthIndex + 1 >= length) {
+              setTruthIndex(0);
+            } else {
+              setTruthIndex(truthIndex + 1);
+            }
+          }}
+          className="px-20 py-4 bg-red-600 rounded "
+          style={{
+            color: "white",
+          }}
+        >
+          Failed
+        </button>
+        <button
+          className="px-20 py-4 bg-gray-600 rounded "
+          onClick={() => {
+            updateTruthStatus(
+              truths[truthIndex].id,
+              truths[truthIndex].streak + 1
+            );
+            truths[truthIndex].streak += 1;
+
+            if (truthIndex + 1 >= length) {
+              setTruthIndex(0);
+            } else {
+              setTruthIndex(truthIndex + 1);
+            }
+          }}
+          style={{
+            color: "white",
+          }}
+        >
+          Skip
+        </button>
+        <button
+          className="px-20 py-4 bg-green-600 rounded "
+          onClick={() => {
+            updateTruthStatus(
+              truths[truthIndex].id,
+              truths[truthIndex].streak + 1
+            );
+            truths[truthIndex].streak += 1;
+
+            if (truthIndex + 1 >= length) {
+              setTruthIndex(0);
+            } else {
+              setTruthIndex(truthIndex + 1);
+            }
+          }}
+          style={{
+            color: "white",
+          }}
+        >
+          Skip
+        </button>
+      </div>
+    </>
   );
 };
 

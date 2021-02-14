@@ -10,7 +10,7 @@ const Footer = () => {
           </div>
           <div className="flex items-center justify-center mt-4 space-x-6 sm:mt-0">
             <a
-              href="https://www.github.com/mamooji/"
+              href="https://github.com/mamooji/Truth-Book"
               target="_blank"
               rel="noreferrer"
             >
