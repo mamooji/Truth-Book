@@ -3,44 +3,12 @@ import Layout from "../components/layout";
 export default function About() {
   return (
     <Layout>
-      <div
-        style={{
-          backgroundColor: "rgb(112,168,251)",
-          objectFit: "cover",
-          width: "100vw",
-          height: "100%",
-          position: "fixed",
-          top: 0,
-          left: 0,
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "3vh",
-            letterSpacing: "0.5vw",
-            textAlign: "center",
-            textTransform: "uppercase",
-            paddingTop: "10vh",
-            color: "white",
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+      <div className="flex flex-col p-4 text-white">
+        <h1 className="text-6xl font-bold text-center">
           About this application
         </h1>
         <br />
-        <p
-          style={{
-            fontSize: "1.8vh",
-            textAlign: "center",
-            font: "syncopate, sans serif",
-            paddingLeft: "3vw",
-            paddingRight: "3vw",
-            color: "white",
-          }}
-        >
+        <p className="text-lg font-medium ">
           This application allows users to have a way of keeping track of daily,
           weekly, monthly or even yearly tasks or goals they want to accomplish.
           With this application a user can create a goal with a name,
